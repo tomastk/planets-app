@@ -6,20 +6,27 @@ const Planet = ({englishName, name}) => {
   const fahrenheitToCelsius = fahrenheit => (fahrenheit - 32) * 5/9;
 
   const updateData = (data) => {
+    let {name, avgTemp, perihelion, aphelion, moons, mass, density, gravity, discoveredBy, discoveryDate} = data
+
+    avgTemp = fahrenheitToCelsius(avgTemp).toFixed(2)
+    const moonsNumber = moons && moons.length
+
+    mass = mass.massValue
+
     const planetInfo = {
-      name: data.name,
-      avgTemp: data.avgTemp,
-      perihelion: data.perihelion,
-      aphelion: data.aphelion,
-      moonsNumber: data.moons && data.moons.length,
-      mass: data.mass.massValue,
-      density: data.density,
-      gravity: data.gravity,
-      discoveredBy: data.discoveredBy,
-      discoveredDate: data.discoveryDate
+      name,
+      avgTemp,
+      perihelion,
+      aphelion,
+      moonsNumber,
+      mass,
+      density,
+      gravity,
+      discoveredBy,
+      discoveryDate
     }
+
     setPlanetData(planetInfo)
-    console.log(planetInfo)
   }
  
   const getPlanetInfo = () => {
@@ -48,7 +55,7 @@ const Planet = ({englishName, name}) => {
           <div className="planet-img">
             <img src={`img/${name.toLowerCase()}.png`} alt="Imagen sobre neptuno" />
             <div className="planet-info one">
-              <p><span className="mt-0"> {fahrenheitToCelsius(planetData.avgTemp).toFixed(2)} ° C </span></p>
+              <p><span className="mt-0"> {planetData.avgTemp} ° C </span></p>
             </div>
             <div className="planet-info two">
               <p>Distancia mínima al Sol: <span> {planetData.perihelion} </span> </p>
@@ -85,7 +92,7 @@ const Planet = ({englishName, name}) => {
               <div className="discovered">
                 <Icon icon="entypo:magnifying-glass" width="60px" height="60px"/>
                 <p>
-                Fue descubierto por {planetData.discoveredBy} el {planetData.discoveredDate}
+                Fue descubierto por {planetData.discoveredBy} el {planetData.discoveryDate}
                 </p>
               </div>
             )}
