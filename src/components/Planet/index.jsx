@@ -2,7 +2,7 @@ import { Icon } from '@iconify/react'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import './index.css'
-const Planet = ({englishName, name}) => {
+const Planet = ({englishName, name, updateMenu}) => {
   const fahrenheitToCelsius = fahrenheit => (fahrenheit - 32) * 5/9;
 
   const updateData = (data) => {
@@ -38,10 +38,10 @@ const Planet = ({englishName, name}) => {
 
   const [planetData, setPlanetData] = useState({})
 
-  useEffect(
-    getPlanetInfo,
-    [name]
-  )
+  useEffect( () => {
+    getPlanetInfo();
+    updateMenu()
+  }, [name])
 
 
 

@@ -4,17 +4,14 @@ import Logo from '../Logo'
 import Navbar from '../Navbar'
 import './index.css'
 
-const Header = () => {
-  const [showed, setShowed] = useState(false)
+const Header = ({updateMenu, showed}) => {
+  
 
-  const handleMenu = () => {
-    setShowed(!showed)
-  }
   return (
     <div className="header">
       <Logo />
       <Navbar showed={showed}/>
-      <Bars handleClick={handleMenu}/>
+      <Bars handleClick={updateMenu}/>
     </div>
   )
 }
