@@ -8,30 +8,33 @@ const Navbar = ({showed}) => {
   return (
     <nav className="nav">
       <ul className={navBarClassName}>
-        <h2 className="only-mobile menu-heading">Planetas</h2>
+        <Link to="/planetas" className="only-mobile menu-heading" activeclassname="active"><h2>Planetas</h2> </Link>
         <li>
-          <Link to="/mercurio" className="nav-a" activeClassName="active">Mercurio</Link>
+          <Link to="/mercurio" className="nav-a" activeclassname="active">Mercurio</Link>
         </li>
         <li>
-          <Link to="/venus" className="nav-a" activeClassName="active">Venus</Link>
+          <Link to="/venus" className="nav-a" activeclassname="active">Venus</Link>
         </li>
         <li>
-          <Link to="/tierra" className="nav-a" activeClassName="active">Tierra</Link>
+          <Link to="/tierra" className="nav-a" activeclassname="active">Tierra</Link>
         </li>
         <li>
-          <Link to="/marte" className="nav-a" activeClassName="active">Marte</Link>
+          <Link to="/marte" className="nav-a" activeclassname="active">Marte</Link>
         </li>
         <li>
-          <Link to="/jupiter" className="nav-a" activeClassName="active">Jupiter</Link>
+          <Link to="/jupiter" className="nav-a" activeclassname="active">Jupiter</Link>
         </li>
         <li>
-          <Link to="/saturno" className="nav-a" activeClassName="active">Saturno</Link>
+          <Link to="/saturno" className="nav-a" activeclassname="active">Saturno</Link>
         </li>
         <li>
-          <Link to="/urano" className="nav-a" activeClassName="active">Urano</Link>
+          <Link to="/urano" className="nav-a" activeclassname="active">Urano</Link>
         </li>
         <li>
-          <Link to="/neptuno" className="nav-a" activeClassName="active">Neptuno</Link>
+          <Link to="/neptuno" className="nav-a" activeclassname="active">Neptuno</Link>
+        </li>
+        <li className="only-desktop">
+          <Link to="/planetas" className={"nav-a"} activeclassname="active">Todos</Link>
         </li>
       </ul>
     </nav>

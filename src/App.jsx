@@ -7,6 +7,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Planets from "./components/Planets";
 
 const App = () => {
   const [showed, setShowed] = useState(true)
@@ -19,6 +20,7 @@ const App = () => {
       <div>
         <Header  updateMenu={updateMenu} showed={showed} />
         <Routes>
+          <Route path="/planetas" exact element={<Planets updateMenu={updateMenu}/>}> </Route>
           <Route path="/neptuno" exact element={<Planet updateMenu={updateMenu} name="Neptuno" englishName={"neptune"}/>}>
           </Route>
           <Route path="/urano" exact element={<Planet updateMenu={updateMenu} name="Urano" englishName={"uranus"}/>}>

@@ -19,7 +19,7 @@ a {
 }
 
 .active {
-  color: lightskyblue;
+  color: rgb(135, 206, 250);
 }
 
 @media screen and (max-width: 1000px) {
