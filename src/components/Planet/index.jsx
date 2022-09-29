@@ -39,8 +39,14 @@ const Planet = ({englishName, name, updateMenu}) => {
   const [planetData, setPlanetData] = useState({})
 
   useEffect( () => {
-    getPlanetInfo();
+    getPlanetInfo()
     updateMenu()
+    window.scroll({
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth'
+    });
+    
   }, [name])
 
 
