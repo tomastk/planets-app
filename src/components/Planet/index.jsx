@@ -1,6 +1,7 @@
 import { Icon } from '@iconify/react'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
+import getPlanetData from '../../utilities/getPlanetData'
 import './index.css'
 const Planet = ({englishName, name, updateMenu}) => {
   const fahrenheitToCelsius = fahrenheit => (fahrenheit - 32) * 5/9;
@@ -29,17 +30,14 @@ const Planet = ({englishName, name, updateMenu}) => {
     setPlanetData(planetInfo)
   }
  
-  const getPlanetInfo = () => {
-    const url = `https://api.le-systeme-solaire.net/rest/bodies/${englishName}`
-    fetch(url)
-      .then(res => res.json())
-      .then(data => updateData(data))
-  }
 
   const [planetData, setPlanetData] = useState({})
 
   useEffect( () => {
-    getPlanetInfo()
+    getPlanetData(englishName)
+      .then(
+        updateData(data)
+      )
     updateMenu()
     window.scroll({
       top: 0, 
